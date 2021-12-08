@@ -21,6 +21,7 @@ public class ModEntityRegistry {
     public static EntityType<BlazingMagmaCreamEntity> BLAZING_MAGMA_CREAM_ENTITY_TYPE;
     public static EntityType<EnderSlimeBallEntity> ENDER_SLIME_BALL_ENTITY_TYPE;
     public static EntityType<LightningMagmaCreamEntity> LIGHTNING_MAGMA_CREAM_ENTITY_TYPE;
+    public static EntityType<AquaSlimeBallEntity> AQUA_SLIME_BALL_ENTITY_TYPE;
 
     private static <T extends Entity> EntityType<T> registerProjectile(String id, EntityType.EntityFactory<T> factory){
         return Registry.register(Registry.ENTITY_TYPE, new Identifier(Main.MODID, id), FabricEntityTypeBuilder.create(SpawnGroup.MISC, factory)
@@ -39,6 +40,7 @@ public class ModEntityRegistry {
         BLAZING_MAGMA_CREAM_ENTITY_TYPE = registerProjectile("blazing_magma_cream", BlazingMagmaCreamEntity::new);
         ENDER_SLIME_BALL_ENTITY_TYPE = registerProjectile("ender_slime_ball", EnderSlimeBallEntity::new);
         LIGHTNING_MAGMA_CREAM_ENTITY_TYPE = registerProjectile("lightning_magma_cream", LightningMagmaCreamEntity::new);
+        AQUA_SLIME_BALL_ENTITY_TYPE = registerProjectile("aqua_slime_ball", AquaSlimeBallEntity::new);
     }
 
 }

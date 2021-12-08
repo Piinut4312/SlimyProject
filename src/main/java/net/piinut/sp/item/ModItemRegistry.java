@@ -19,6 +19,7 @@ public class ModItemRegistry {
     public static final Item HARDENED_SLIME_BALL = new HardenedSlimeBallItem(new FabricItemSettings().group(Main.MOD_ITEM_GROUP));
     public static final Item BLAZING_MAGMA_CREAM = new BlazingMagmaCreamItem(new FabricItemSettings().group(Main.MOD_ITEM_GROUP).fireproof());
     public static final Item ENDER_SLIME_BALL = new EnderSlimeBallItem(new FabricItemSettings().group(Main.MOD_ITEM_GROUP));
+    public static final Item AQUA_SLIME_BALL = new AquaSlimeBallItem(new FabricItemSettings().group(Main.MOD_ITEM_GROUP));
     public static final Item SLIMESHROOM_STEW = new SlimeshroomStewItem(new FabricItemSettings().group(Main.MOD_ITEM_GROUP).food(ModFoods.SLIMESHROOM_STEW.build()).maxCount(1));
     public static final Item LIGHTNING_MAGMA_CREAM = new LightningMagmaCreamItem(new FabricItemSettings().group(Main.MOD_ITEM_GROUP).fireproof());
     public static final Item COPPER_NUGGET = new Item(new FabricItemSettings().group(Main.MOD_ITEM_GROUP));
@@ -49,6 +50,7 @@ public class ModItemRegistry {
         register(EXPLODING_MAGMA_CREAM, "exploding_magma_cream");
         register(BLAZING_MAGMA_CREAM, "blazing_magma_cream");
         register(ENDER_SLIME_BALL, "ender_slime_ball");
+        register(AQUA_SLIME_BALL, "aqua_slime_ball");
         register(LIGHTNING_MAGMA_CREAM, "lightning_magma_cream");
         register(GOLDEN_SLIME_BALL, "golden_slime_ball");
         register(ENCHANTED_GOLDEN_SLIME_BALL, "enchanted_golden_slime_ball");

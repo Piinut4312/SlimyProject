@@ -54,6 +54,7 @@ public class SlimeballCultivatorBlockEntity extends BlockEntity implements Imple
         registerFoodConsume(ModItemRegistry.GLOWING_SLIME_BALL, 3);
         registerFoodConsume(ModItemRegistry.ENDER_SLIME_BALL, 12);
         registerFoodConsume(ModItemRegistry.GOLDEN_SLIME_BALL, 12);
+        registerFoodConsume(ModItemRegistry.AQUA_SLIME_BALL, 2);
     }
 
     public int getNutrient(){

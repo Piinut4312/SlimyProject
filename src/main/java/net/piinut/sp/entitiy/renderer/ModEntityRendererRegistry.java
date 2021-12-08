@@ -32,6 +32,7 @@ public class ModEntityRendererRegistry {
         registerProjectile(ModEntityRegistry.BLAZING_MAGMA_CREAM_ENTITY_TYPE);
         registerProjectile(ModEntityRegistry.ENDER_SLIME_BALL_ENTITY_TYPE);
         registerProjectile(ModEntityRegistry.LIGHTNING_MAGMA_CREAM_ENTITY_TYPE);
+        registerProjectile(ModEntityRegistry.AQUA_SLIME_BALL_ENTITY_TYPE);
     }
 
 }

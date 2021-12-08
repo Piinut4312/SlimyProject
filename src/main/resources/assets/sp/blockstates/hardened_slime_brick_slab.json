@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "sp:block/hardened_slime_brick_slab"
+    },
+    "type=double": {
+      "model": "sp:block/hardened_slime_brick"
+    },
+    "type=top": {
+      "model": "sp:block/hardened_slime_brick_slab_top"
+    }
+  }
+}

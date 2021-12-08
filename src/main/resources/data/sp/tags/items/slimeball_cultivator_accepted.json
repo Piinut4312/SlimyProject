@@ -1,0 +1,9 @@
+{
+    "replace":"false",
+    "values":[
+        "minecraft:slime_ball",
+        "sp:glowing_slime_ball",
+        "sp:ender_slime_ball",
+        "sp:golden_slime_ball"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "sp:hardened_slime_block",
+    "sp:hardened_slime_brick",
+    "sp:hardened_slime_brick_stairs",
+    "sp:hardened_slime_brick_slab",
+    "sp:chiseled_hardened_slime_brick",
+    "sp:copper_chain",
+    "sp:copper_lantern",
+    "sp:copper_soul_lantern",
+    "sp:slimeball_cultivator"
+  ]
+}

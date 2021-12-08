@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "sp:block/slimy_dirt_top",
+    "bottom": "minecraft:block/dirt",
+    "side": "sp:block/slimy_dirt_side"
+  }
+}

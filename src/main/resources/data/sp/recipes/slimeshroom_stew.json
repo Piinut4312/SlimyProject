@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "sp:slimeshroom"
+    },
+    {
+      "item": "sp:slimeshroom"
+    }
+  ],
+  "result": {
+    "item": "sp:slimeshroom_stew",
+    "count": 1
+  }
+}

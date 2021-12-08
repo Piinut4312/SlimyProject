@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "sp:copper_nugget"
+    },
+    {
+      "item": "sp:copper_nugget"
+    },
+    {
+      "item": "sp:copper_nugget"
+    },
+    {
+      "item": "sp:copper_nugget"
+    },
+    {
+      "item": "minecraft:magma_cream"
+    }
+  ],
+  "result": {
+    "item": "sp:lightning_magma_cream",
+    "count": 1
+  }
+}

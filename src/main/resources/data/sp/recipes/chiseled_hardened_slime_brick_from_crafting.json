@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "sp:hardened_slime_brick_slab"
+    }
+  },
+  "result": {
+    "item": "sp:chiseled_hardened_slime_brick",
+    "count": 2
+  }
+}

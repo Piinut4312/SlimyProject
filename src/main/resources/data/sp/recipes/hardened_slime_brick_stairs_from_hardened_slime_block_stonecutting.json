@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "sp:hardened_slime_block"
+  },
+  "result": "sp:hardened_slime_brick_stairs",
+  "count": 1
+}

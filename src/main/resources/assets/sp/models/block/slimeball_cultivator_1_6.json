@@ -1,0 +1,10 @@
+{
+	"parent": "sp:block/slimeball_cultivator_base",
+	"textures": {
+		"base": "block/cut_copper",
+		"dish": "block/tinted_glass",
+		"top": "sp:block/slimeball_cultivator_top",
+		"water":"sp:block/slimeball_cultivator_water_1",
+		"nutrient":"sp:block/slimeball_cultivator_nutrient_6"
+	}
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "sp:block/chiseled_hardened_slime_brick"
+  }
+}

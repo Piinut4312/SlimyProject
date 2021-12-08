@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "sp:block/hardened_slime_brick",
+    "top": "sp:block/hardened_slime_brick",
+    "side": "sp:block/hardened_slime_brick"
+  }
+}

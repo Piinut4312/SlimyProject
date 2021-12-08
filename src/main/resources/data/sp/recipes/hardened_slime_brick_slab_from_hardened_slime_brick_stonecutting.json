@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "sp:hardened_slime_brick"
+  },
+  "result": "sp:hardened_slime_brick_slab",
+  "count": 2
+}

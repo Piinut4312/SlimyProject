@@ -1,0 +1,277 @@
+{
+	"variants": {
+		"water=0,nutrient=0":{
+			"model": "sp:block/slimeball_cultivator_0_0"
+		},
+		"water=1,nutrient=0":{
+			"model": "sp:block/slimeball_cultivator_1_0"
+		},
+		"water=2,nutrient=0":{
+			"model": "sp:block/slimeball_cultivator_2_0"
+		},
+		"water=3,nutrient=0":{
+			"model": "sp:block/slimeball_cultivator_3_0"
+		},
+		"water=4,nutrient=0":{
+			"model": "sp:block/slimeball_cultivator_4_0"
+		},
+		"water=5,nutrient=0":{
+			"model": "sp:block/slimeball_cultivator_5_0"
+		},
+		"water=6,nutrient=0":{
+			"model": "sp:block/slimeball_cultivator_6_0"
+		},
+		"water=0,nutrient=1":{
+			"model": "sp:block/slimeball_cultivator_0_1"
+		},
+		"water=1,nutrient=1":{
+			"model": "sp:block/slimeball_cultivator_1_1"
+		},
+		"water=2,nutrient=1":{
+			"model": "sp:block/slimeball_cultivator_2_1"
+		},
+		"water=3,nutrient=1":{
+			"model": "sp:block/slimeball_cultivator_3_1"
+		},
+		"water=4,nutrient=1":{
+			"model": "sp:block/slimeball_cultivator_4_1"
+		},
+		"water=5,nutrient=1":{
+			"model": "sp:block/slimeball_cultivator_5_1"
+		},
+		"water=6,nutrient=1":{
+			"model": "sp:block/slimeball_cultivator_6_1"
+		},
+		"water=0,nutrient=2":{
+			"model": "sp:block/slimeball_cultivator_0_2"
+		},
+		"water=1,nutrient=2":{
+			"model": "sp:block/slimeball_cultivator_1_2"
+		},
+		"water=2,nutrient=2":{
+			"model": "sp:block/slimeball_cultivator_2_2"
+		},
+		"water=3,nutrient=2":{
+			"model": "sp:block/slimeball_cultivator_3_2"
+		},
+		"water=4,nutrient=2":{
+			"model": "sp:block/slimeball_cultivator_4_2"
+		},
+		"water=5,nutrient=2":{
+			"model": "sp:block/slimeball_cultivator_5_2"
+		},
+		"water=6,nutrient=2":{
+			"model": "sp:block/slimeball_cultivator_6_2"
+		},
+		"water=0,nutrient=3":{
+			"model": "sp:block/slimeball_cultivator_0_3"
+		},
+		"water=1,nutrient=3":{
+			"model": "sp:block/slimeball_cultivator_1_3"
+		},
+		"water=2,nutrient=3":{
+			"model": "sp:block/slimeball_cultivator_2_3"
+		},
+		"water=3,nutrient=3":{
+			"model": "sp:block/slimeball_cultivator_3_3"
+		},
+		"water=4,nutrient=3":{
+			"model": "sp:block/slimeball_cultivator_4_3"
+		},
+		"water=5,nutrient=3":{
+			"model": "sp:block/slimeball_cultivator_5_3"
+		},
+		"water=6,nutrient=3":{
+			"model": "sp:block/slimeball_cultivator_6_3"
+		},
+		"water=0,nutrient=4":{
+			"model": "sp:block/slimeball_cultivator_0_4"
+		},
+		"water=1,nutrient=4":{
+			"model": "sp:block/slimeball_cultivator_1_4"
+		},
+		"water=2,nutrient=4":{
+			"model": "sp:block/slimeball_cultivator_2_4"
+		},
+		"water=3,nutrient=4":{
+			"model": "sp:block/slimeball_cultivator_3_4"
+		},
+		"water=4,nutrient=4":{
+			"model": "sp:block/slimeball_cultivator_4_4"
+		},
+		"water=5,nutrient=4":{
+			"model": "sp:block/slimeball_cultivator_5_4"
+		},
+		"water=6,nutrient=4":{
+			"model": "sp:block/slimeball_cultivator_6_4"
+		},
+		"water=0,nutrient=5":{
+			"model": "sp:block/slimeball_cultivator_0_5"
+		},
+		"water=1,nutrient=5":{
+			"model": "sp:block/slimeball_cultivator_1_5"
+		},
+		"water=2,nutrient=5":{
+			"model": "sp:block/slimeball_cultivator_2_5"
+		},
+		"water=3,nutrient=5":{
+			"model": "sp:block/slimeball_cultivator_3_5"
+		},
+		"water=4,nutrient=5":{
+			"model": "sp:block/slimeball_cultivator_4_5"
+		},
+		"water=5,nutrient=5":{
+			"model": "sp:block/slimeball_cultivator_5_5"
+		},
+		"water=6,nutrient=5":{
+			"model": "sp:block/slimeball_cultivator_6_5"
+		},
+		"water=0,nutrient=6":{
+			"model": "sp:block/slimeball_cultivator_0_6"
+		},
+		"water=1,nutrient=6":{
+			"model": "sp:block/slimeball_cultivator_1_6"
+		},
+		"water=2,nutrient=6":{
+			"model": "sp:block/slimeball_cultivator_2_6"
+		},
+		"water=3,nutrient=6":{
+			"model": "sp:block/slimeball_cultivator_3_6"
+		},
+		"water=4,nutrient=6":{
+			"model": "sp:block/slimeball_cultivator_4_6"
+		},
+		"water=5,nutrient=6":{
+			"model": "sp:block/slimeball_cultivator_5_6"
+		},
+		"water=6,nutrient=6":{
+			"model": "sp:block/slimeball_cultivator_6_6"
+		},
+		"water=0,nutrient=7":{
+			"model": "sp:block/slimeball_cultivator_0_7"
+		},
+		"water=1,nutrient=7":{
+			"model": "sp:block/slimeball_cultivator_1_7"
+		},
+		"water=2,nutrient=7":{
+			"model": "sp:block/slimeball_cultivator_2_7"
+		},
+		"water=3,nutrient=7":{
+			"model": "sp:block/slimeball_cultivator_3_7"
+		},
+		"water=4,nutrient=7":{
+			"model": "sp:block/slimeball_cultivator_4_7"
+		},
+		"water=5,nutrient=7":{
+			"model": "sp:block/slimeball_cultivator_5_7"
+		},
+		"water=6,nutrient=7":{
+			"model": "sp:block/slimeball_cultivator_6_7"
+		},
+		"water=0,nutrient=8":{
+			"model": "sp:block/slimeball_cultivator_0_8"
+		},
+		"water=1,nutrient=8":{
+			"model": "sp:block/slimeball_cultivator_1_8"
+		},
+		"water=2,nutrient=8":{
+			"model": "sp:block/slimeball_cultivator_2_8"
+		},
+		"water=3,nutrient=8":{
+			"model": "sp:block/slimeball_cultivator_3_8"
+		},
+		"water=4,nutrient=8":{
+			"model": "sp:block/slimeball_cultivator_4_8"
+		},
+		"water=5,nutrient=8":{
+			"model": "sp:block/slimeball_cultivator_5_8"
+		},
+		"water=6,nutrient=8":{
+			"model": "sp:block/slimeball_cultivator_6_8"
+		},
+		"water=0,nutrient=9":{
+			"model": "sp:block/slimeball_cultivator_0_9"
+		},
+		"water=1,nutrient=9":{
+			"model": "sp:block/slimeball_cultivator_1_9"
+		},
+		"water=2,nutrient=9":{
+			"model": "sp:block/slimeball_cultivator_2_9"
+		},
+		"water=3,nutrient=9":{
+			"model": "sp:block/slimeball_cultivator_3_9"
+		},
+		"water=4,nutrient=9":{
+			"model": "sp:block/slimeball_cultivator_4_9"
+		},
+		"water=5,nutrient=9":{
+			"model": "sp:block/slimeball_cultivator_5_9"
+		},
+		"water=6,nutrient=9":{
+			"model": "sp:block/slimeball_cultivator_6_9"
+		},
+		"water=0,nutrient=10":{
+			"model": "sp:block/slimeball_cultivator_0_10"
+		},
+		"water=1,nutrient=10":{
+			"model": "sp:block/slimeball_cultivator_1_10"
+		},
+		"water=2,nutrient=10":{
+			"model": "sp:block/slimeball_cultivator_2_10"
+		},
+		"water=3,nutrient=10":{
+			"model": "sp:block/slimeball_cultivator_3_10"
+		},
+		"water=4,nutrient=10":{
+			"model": "sp:block/slimeball_cultivator_4_10"
+		},
+		"water=5,nutrient=10":{
+			"model": "sp:block/slimeball_cultivator_5_10"
+		},
+		"water=6,nutrient=10":{
+			"model": "sp:block/slimeball_cultivator_6_10"
+		},
+		"water=0,nutrient=11":{
+			"model": "sp:block/slimeball_cultivator_0_11"
+		},
+		"water=1,nutrient=11":{
+			"model": "sp:block/slimeball_cultivator_1_11"
+		},
+		"water=2,nutrient=11":{
+			"model": "sp:block/slimeball_cultivator_2_11"
+		},
+		"water=3,nutrient=11":{
+			"model": "sp:block/slimeball_cultivator_3_11"
+		},
+		"water=4,nutrient=11":{
+			"model": "sp:block/slimeball_cultivator_4_11"
+		},
+		"water=5,nutrient=11":{
+			"model": "sp:block/slimeball_cultivator_5_11"
+		},
+		"water=6,nutrient=11":{
+			"model": "sp:block/slimeball_cultivator_6_11"
+		},
+		"water=0,nutrient=12":{
+			"model": "sp:block/slimeball_cultivator_0_12"
+		},
+		"water=1,nutrient=12":{
+			"model": "sp:block/slimeball_cultivator_1_12"
+		},
+		"water=2,nutrient=12":{
+			"model": "sp:block/slimeball_cultivator_2_12"
+		},
+		"water=3,nutrient=12":{
+			"model": "sp:block/slimeball_cultivator_3_12"
+		},
+		"water=4,nutrient=12":{
+			"model": "sp:block/slimeball_cultivator_4_12"
+		},
+		"water=5,nutrient=12":{
+			"model": "sp:block/slimeball_cultivator_5_12"
+		},
+		"water=6,nutrient=12":{
+			"model": "sp:block/slimeball_cultivator_6_12"
+		}
+	}
+}

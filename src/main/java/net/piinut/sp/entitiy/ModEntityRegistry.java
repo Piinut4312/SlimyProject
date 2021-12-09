@@ -2,13 +2,12 @@ package net.piinut.sp.entitiy;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
+import net.fabricmc.fabric.mixin.object.builder.SpawnRestrictionAccessor;
+import net.minecraft.entity.*;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.Heightmap;
 import net.piinut.sp.Main;
 
 public class ModEntityRegistry {
@@ -22,6 +21,12 @@ public class ModEntityRegistry {
     public static EntityType<EnderSlimeBallEntity> ENDER_SLIME_BALL_ENTITY_TYPE;
     public static EntityType<LightningMagmaCreamEntity> LIGHTNING_MAGMA_CREAM_ENTITY_TYPE;
     public static EntityType<AquaSlimeBallEntity> AQUA_SLIME_BALL_ENTITY_TYPE;
+
+    public static final EntityType<AquaSlimeEntity> AQUA_SLIME_ENTITY_ENTITY_TYPE = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(Main.MODID, "aqua_slime"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, AquaSlimeEntity::new).dimensions(EntityDimensions.changing(2.04f, 2.04f)).trackRangeBlocks(10).build()
+    );
 
     private static <T extends Entity> EntityType<T> registerProjectile(String id, EntityType.EntityFactory<T> factory){
         return Registry.register(Registry.ENTITY_TYPE, new Identifier(Main.MODID, id), FabricEntityTypeBuilder.create(SpawnGroup.MISC, factory)
@@ -41,6 +46,10 @@ public class ModEntityRegistry {
         ENDER_SLIME_BALL_ENTITY_TYPE = registerProjectile("ender_slime_ball", EnderSlimeBallEntity::new);
         LIGHTNING_MAGMA_CREAM_ENTITY_TYPE = registerProjectile("lightning_magma_cream", LightningMagmaCreamEntity::new);
         AQUA_SLIME_BALL_ENTITY_TYPE = registerProjectile("aqua_slime_ball", AquaSlimeBallEntity::new);
+
+        SpawnRestrictionAccessor.callRegister(AQUA_SLIME_ENTITY_ENTITY_TYPE, SpawnRestriction.Location.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AquaSlimeEntity::canAquaSlimeSpawn);
+
+        FabricDefaultAttributeRegistry.register(AQUA_SLIME_ENTITY_ENTITY_TYPE, HostileEntity.createHostileAttributes());
     }
 
 }

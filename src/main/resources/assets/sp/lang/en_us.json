@@ -20,6 +20,7 @@
   "item.sp.enchanted_golden_slime_ball":"Enchanted Golden Slimeball",
   "item.sp.slimeshroom_stew":"Slimeshroom Stew",
   "item.sp.copper_nugget":"Copper Nugget",
+  "item.sp.aqua_slime_spawn_egg":"Aqua Slime Spawn Egg",
   "itemGroup.sp.general":"Slimy Project",
   "block.sp.slime_layer": "Slime Layer",
   "block.sp.magma_cream_layer": "Magma Cream Layer",
@@ -46,6 +47,7 @@
   "block.sp.copper_lantern":"Copper Lantern",
   "block.sp.copper_soul_lantern":"Copper Soul Lantern",
   "block.sp.slimeball_cultivator":"Slimeball Cultivator",
+  "entity.sp.aqua_slime":"Aqua Slime",
   "biome.sp.slimeshroom_forest":"Slimeshroom Forest",
   "enchantment.sp.bounce":"Bounce"
 }

@@ -20,6 +20,7 @@
   "item.sp.enchanted_golden_slime_ball":"附魔金史萊姆球",
   "item.sp.slimeshroom_stew":"史萊姆蘑菇湯",
   "item.sp.copper_nugget":"銅粒",
+  "item.sp.aqua_slime_spawn_egg":"濕萊姆生怪蛋",
   "itemGroup.sp.general":"黏液計畫",
   "block.sp.slime_layer": "史萊姆黏液",
   "block.sp.magma_cream_layer": "岩漿球黏液",
@@ -46,6 +47,7 @@
   "block.sp.copper_lantern":"銅製燈籠",
   "block.sp.copper_soul_lantern":"銅製靈魂燈籠",
   "block.sp.slimeball_cultivator":"史萊姆球培養器",
+  "entity.sp.aqua_slime":"濕萊姆",
   "biome.sp.slimeshroom_forest":"史萊姆蘑菇森林",
   "enchantment.sp.bounce":"彈跳"
 }

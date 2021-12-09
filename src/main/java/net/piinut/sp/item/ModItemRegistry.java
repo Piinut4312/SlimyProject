@@ -9,6 +9,7 @@ import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import net.piinut.sp.Main;
 import net.piinut.sp.block.ModBlockRegistry;
+import net.piinut.sp.entitiy.ModEntityRegistry;
 
 public class ModItemRegistry {
 
@@ -27,6 +28,7 @@ public class ModItemRegistry {
     public static final Item ENCHANTED_GOLDEN_SLIME_BALL = new EnchantedGoldenSlimeBallItem(new FabricItemSettings().group(Main.MOD_ITEM_GROUP).food(ModFoods.ENCHANTED_GOLDEN_SLIME_BALL.build()).rarity(Rarity.EPIC));
     public static final BlockItem SLIMESHROOM = new BlockItem(ModBlockRegistry.SLIMESHROOM_PLANT, new FabricItemSettings().group(Main.MOD_ITEM_GROUP));
     public static final BlockItem LIVERWORT = new BlockItem(ModBlockRegistry.LIVERWORT, new FabricItemSettings().group(Main.MOD_ITEM_GROUP));
+    public static final SpawnEggItem AQUA_SLIME_SPAWN_EGG = new SpawnEggItem(ModEntityRegistry.AQUA_SLIME_ENTITY_ENTITY_TYPE, 10868735, 7648767, new FabricItemSettings().group(Main.MOD_ITEM_GROUP));
 
     private static void register(Item item, String id){
         Registry.register(Registry.ITEM, new Identifier(Main.MODID, id), item);
@@ -58,6 +60,7 @@ public class ModItemRegistry {
         register(LIVERWORT, "liverwort");
         register(SLIMESHROOM_STEW, "slimeshroom_stew");
         register(COPPER_NUGGET, "copper_nugget");
+        register(AQUA_SLIME_SPAWN_EGG, "aqua_slime_spawn_egg");
         registerBlockItem(ModBlockRegistry.SLIME_LAYER, "slime_layer");
         registerBlockItem(ModBlockRegistry.MAGMA_CREAM_LAYER, "magma_cream_layer");
         registerBlockItem(ModBlockRegistry.GLOWING_SLIME_LAYER, "glowing_slime_layer");

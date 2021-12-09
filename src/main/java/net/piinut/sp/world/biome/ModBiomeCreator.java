@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+import net.piinut.sp.entitiy.ModEntityRegistry;
 import net.piinut.sp.world.feature.ModConfiguredFeatureRegistry;
 import net.piinut.sp.world.feature.structure.ModStructureRegistry;
 
@@ -25,7 +26,8 @@ public class ModBiomeCreator {
 
     private static Biome createSlimeshroomForest(){
         SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
-        spawnSettings.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 1, 4, 4));
+        spawnSettings.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SLIME, 3, 4, 4));
+        spawnSettings.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(ModEntityRegistry.AQUA_SLIME_ENTITY_ENTITY_TYPE, 1, 4, 4));
         DefaultBiomeFeatures.addCaveMobs(spawnSettings);
         GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
         generationSettings.surfaceBuilder(SLIMY_SURFACE_BUILDER);
@@ -42,14 +44,12 @@ public class ModBiomeCreator {
         generationSettings.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, ModConfiguredFeatureRegistry.SLIMESHROOM_FOREST_SLIME_LAYER);
         generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModConfiguredFeatureRegistry.SLIMESHROOM_FOREST_HUGE_SLIMESHROOM);
         generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModConfiguredFeatureRegistry.SLIMESHROOM_FOREST_GRASS);
-        //generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModConfiguredFeatureRegistry.SLIMESHROOM_NORMAL);
-        //generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, ModConfiguredFeatureRegistry.LIVERWORT_NORMAL);
         DefaultBiomeFeatures.addSprings(generationSettings);
 
         return (new Biome.Builder())
                 .precipitation(Biome.Precipitation.RAIN)
                 .category(Biome.Category.NONE)
-                .depth(0.1f)
+                .depth(0.2f)
                 .scale(0.2f)
                 .temperature(0.7f)
                 .downfall(0.8f)

@@ -35,7 +35,6 @@ public class ModEntityRegistry {
                 .build());
     }
 
-
     public static void registerAll(){
         SLIME_BALL_ENTITY_TYPE = registerProjectile("slime_ball", SlimeBallEntity::new);
         MAGMA_CREAM_ENTITY_TYPE = registerProjectile("magma_cream", MagmaCreamEntity::new);
@@ -50,6 +49,7 @@ public class ModEntityRegistry {
         SpawnRestrictionAccessor.callRegister(AQUA_SLIME_ENTITY_ENTITY_TYPE, SpawnRestriction.Location.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AquaSlimeEntity::canAquaSlimeSpawn);
 
         FabricDefaultAttributeRegistry.register(AQUA_SLIME_ENTITY_ENTITY_TYPE, HostileEntity.createHostileAttributes());
+
     }
 
 }

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "@$@",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:waxed_cut_copper"
+    },
+    "@":{
+      "item":"sp:copper_ingot"
+    },
+    "$":{
+      "item":"minecraft:tinted_glass"
+    }
+  },
+  "result": {
+    "item": "sp:slimeball_cultivator",
+    "count":1
+  }
+}

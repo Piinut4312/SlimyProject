@@ -35,7 +35,7 @@ public class SlimeballCultivatorBlockEntity extends BlockEntity implements Imple
 
     public static final Object2IntMap<ItemConvertible> FOOD_CONSUME = new Object2IntOpenHashMap<>();
 
-    private final DefaultedList<ItemStack> items = DefaultedList.ofSize(3, ItemStack.EMPTY);
+    private final DefaultedList<ItemStack> items = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
     public SlimeballCultivatorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntityRegistry.SLIMEBALL_CULTIVATOR_BLOCK_ENTITY, pos, state);
@@ -153,11 +153,19 @@ public class SlimeballCultivatorBlockEntity extends BlockEntity implements Imple
             ItemStack itemStack = be.getStack(0);
             ItemStack itemStack1 = be.getStack(1);
             ItemStack itemStack2 = be.getStack(2);
+            ItemStack itemStack3 = be.getStack(3);
             if(!itemStack2.isEmpty() && be.getNutrient() < nutrient_cap){
                 be.removeStack(2);
                 be.addNutrient(1);
                 world.setBlockState(pos, state.with(SlimeballCultivatorBlock.NUTRIENT, be.getNutrient()));
                 world.playSound(null, pos, SoundEvents.BLOCK_COMPOSTER_FILL, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                be.markDirty();
+            }
+            if(!itemStack3.isEmpty() && be.getLiquid() < liquid_cap){
+                be.removeStack(3);
+                be.addLiquid(2);
+                world.setBlockState(pos, state.with(SlimeballCultivatorBlock.WATER, be.getLiquid()));
+                world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 be.markDirty();
             }
             if(!itemStack.isEmpty() && itemStack1.isEmpty()){
@@ -199,7 +207,15 @@ public class SlimeballCultivatorBlockEntity extends BlockEntity implements Imple
 
     @Override
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return dir != Direction.UP && slot == 2 && ModItemTags.SLIMEBALL_FOODS.contains(stack.getItem()) && this.nutrient < nutrient_cap;
+        if(dir == Direction.UP){
+            return false;
+        }
+        if(slot == 2){
+            return ModItemTags.SLIMEBALL_CULTIVATOR_FOOD_SUPPLY.contains(stack.getItem()) && this.nutrient < nutrient_cap;
+        }else if(slot == 3){
+            return ModItemTags.SLIMEBALL_CULTIVATOR_LIQUID_SUPPLY.contains(stack.getItem()) && this.liquid < liquid_cap;
+        }
+        return false;
     }
 
     @Override

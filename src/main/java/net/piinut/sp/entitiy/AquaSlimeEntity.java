@@ -74,7 +74,11 @@ public class AquaSlimeEntity extends SlimeEntity {
         } else {
             super.swimUpward(fluid);
         }
+    }
 
+    @Override
+    public boolean isFireImmune() {
+        return true;
     }
 
     @Override

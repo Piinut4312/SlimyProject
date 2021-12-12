@@ -82,7 +82,7 @@ public class SlimeballCultivatorBlock extends BlockWithEntity {
                     itemStack.decrement(1);
                 }
                 world.playSound(null, pos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            }else if(ModItemTags.SLIMEBALL_FOODS.contains(itemStack.getItem()) && !blockEntity.isNutrientFull()){
+            }else if(ModItemTags.SLIMEBALL_CULTIVATOR_FOOD_SUPPLY.contains(itemStack.getItem()) && !blockEntity.isNutrientFull()){
                 blockEntity.addNutrient(1);
                 world.setBlockState(pos, state.with(NUTRIENT, blockEntity.getNutrient()));
                 itemStack.decrement(1);

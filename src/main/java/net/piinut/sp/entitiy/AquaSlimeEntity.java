@@ -1,5 +1,6 @@
 package net.piinut.sp.entitiy;
 
+import net.minecraft.block.AbstractFireBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -12,6 +13,8 @@ import net.minecraft.fluid.Fluid;
 import net.minecraft.loot.LootTables;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
@@ -66,7 +69,7 @@ public class AquaSlimeEntity extends SlimeEntity {
     protected void swimUpward(Tag<Fluid> fluid) {
         if (fluid == FluidTags.WATER) {
             Vec3d vec3d = this.getVelocity();
-            this.setVelocity(vec3d.x, 0.22F + (float)this.getSize() * 0.05F, vec3d.z);
+            this.setVelocity(vec3d.x, 0.32F + (float)this.getSize() * 0.05F, vec3d.z);
             this.velocityDirty = true;
         } else {
             super.swimUpward(fluid);
@@ -98,15 +101,20 @@ public class AquaSlimeEntity extends SlimeEntity {
                 return;
             }
 
-            BlockState blockState = Blocks.OBSIDIAN.getDefaultState();
+            BlockState obsidianDefaultState = Blocks.OBSIDIAN.getDefaultState();
 
             for(int l = 0; l < 4; ++l) {
                 i = MathHelper.floor(this.getX() + (double)((float)(l % 2 * 2 - 1) * 0.25F));
                 j = MathHelper.floor(this.getY()-1);
                 k = MathHelper.floor(this.getZ() + (double)((float)(l / 2 % 2 * 2 - 1) * 0.25F));
                 BlockPos blockPos = new BlockPos(i, j, k);
-                if (this.world.getBlockState(blockPos).isOf(Blocks.LAVA) && blockState.canPlaceAt(this.world, blockPos)) {
-                    this.world.setBlockState(blockPos, blockState);
+                if (this.world.getBlockState(blockPos).isOf(Blocks.LAVA) && obsidianDefaultState.canPlaceAt(this.world, blockPos)) {
+                    this.world.setBlockState(blockPos, obsidianDefaultState);
+                    world.playSound(null, blockPos, SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                }
+                if(this.world.getBlockState(blockPos).getBlock() instanceof AbstractFireBlock){
+                    world.removeBlock(blockPos, false);
+                    world.playSound(null, blockPos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 }
             }
         }

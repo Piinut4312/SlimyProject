@@ -1,11 +1,9 @@
 package net.piinut.sp.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
@@ -20,9 +18,11 @@ import net.minecraft.world.biome.Biome;
 import net.piinut.sp.Main;
 import net.piinut.sp.item.ModSlimeBallItem;
 
+import java.util.Random;
+
 public abstract class LayerBlock extends Block {
 
-    private static final float RAIN_WASHING_CHANCE = 0.2f;
+    protected static final float RAIN_WASHING_CHANCE = 0.2f;
     public static final IntProperty STICKINESS = IntProperty.of("stickiness", ModSlimeBallItem.MIN_STICKINESS, ModSlimeBallItem.MAX_STICKINESS);
 
     protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
@@ -47,14 +47,6 @@ public abstract class LayerBlock extends Block {
         super.onLandedUpon(world, state, pos, entity, fallDistance);
     }
 
-    protected static boolean canRainWash(World world, Biome.Precipitation precipitation){
-        if(precipitation == Biome.Precipitation.RAIN){
-            return world.getRandom().nextFloat() < RAIN_WASHING_CHANCE;
-        }else{
-            return false;
-        }
-    }
-
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos.down());
@@ -74,10 +66,16 @@ public abstract class LayerBlock extends Block {
     }
 
     @Override
-    public void precipitationTick(BlockState state, World world, BlockPos pos, Biome.Precipitation precipitation) {
-        if(canRainWash(world, precipitation)){
-            world.setBlockState(pos, Blocks.AIR.getDefaultState());
-        }
+    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+        super.onBlockAdded(state, world, pos, oldState, notify);
+        world.getBlockTickScheduler().schedule(pos, this, 200+world.getRandom().nextInt(50));
     }
 
+    @Override
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        world.getBlockTickScheduler().schedule(pos, this, 200+world.getRandom().nextInt(50));
+        if (world.isRaining() && world.hasRain(pos) && random.nextFloat() < RAIN_WASHING_CHANCE) {
+            world.removeBlock(pos, false);
+        }
+    }
 }

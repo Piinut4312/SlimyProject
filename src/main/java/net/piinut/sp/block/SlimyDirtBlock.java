@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.piinut.sp.Main;
 import net.piinut.sp.enchantment.ModEnchantmentRegistry;
 
@@ -47,4 +48,5 @@ public class SlimyDirtBlock extends SpreadableBlock {
         }
         super.randomTick(state, world, pos, random);
     }
+
 }

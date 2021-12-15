@@ -3,6 +3,7 @@ package net.piinut.sp.entitiy;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.SnowBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -14,6 +15,8 @@ import net.minecraft.network.Packet;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
@@ -64,14 +67,23 @@ public class EnderSlimeBallEntity extends ThrownItemEntity {
         entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), 0f);
     }
 
+    private boolean canPutSlimeLayer(BlockState blockState){
+        if(blockState.getBlock() instanceof SnowBlock){
+            return blockState.get(SnowBlock.LAYERS) == 1;
+        }
+
+        return blockState.isAir() || blockState.getMaterial().isReplaceable();
+    }
+
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
         if (!this.world.isClient) {
             BlockPos pos = new BlockPos(hitResult.getPos());
-            BlockState state = world.getBlockState(pos);
-            BlockState state2 = world.getBlockState(pos.down());
-            if(state.isAir() && !state2.isAir()){
-                this.world.setBlockState(pos, ModBlockRegistry.ENDER_SLIME_LAYER.getDefaultState());
+            BlockState blockState = ModBlockRegistry.ENDER_SLIME_LAYER.getDefaultState();
+
+            if(canPutSlimeLayer(this.world.getBlockState(pos)) && blockState.canPlaceAt(world, pos)){
+                this.world.setBlockState(pos, blockState);
+                this.world.playSound(null, pos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.NEUTRAL, 0.6F, 1.0F);
             }
             this.world.sendEntityStatus(this, (byte)3);
             this.kill();

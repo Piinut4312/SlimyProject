@@ -3,7 +3,9 @@ package net.piinut.sp.entitiy;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.AbstractFireBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.SnowBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -77,13 +79,21 @@ public class SlimeBallEntity extends ThrownItemEntity {
         entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), 0f);
     }
 
+    private boolean canPutSlimeLayer(BlockState blockState){
+        if(blockState.getBlock() instanceof SnowBlock){
+            return blockState.get(SnowBlock.LAYERS) == 1;
+        }
+
+        return blockState.isAir() || blockState.getMaterial().isReplaceable();
+    }
+
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
         if (!this.world.isClient) {
             BlockPos pos = new BlockPos(hitResult.getPos());
             BlockState blockState = ModBlockRegistry.SLIME_LAYER.getDefaultState().with(SlimeLayerBlock.STICKINESS, this.stickiness);
 
-            if(this.world.getBlockState(pos).isAir() && blockState.canPlaceAt(world, pos)){
+            if(canPutSlimeLayer(this.world.getBlockState(pos)) && blockState.canPlaceAt(world, pos)){
                 this.world.setBlockState(pos, blockState);
                 this.world.playSound(null, pos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.NEUTRAL, 0.6F, 1.0F);
             }

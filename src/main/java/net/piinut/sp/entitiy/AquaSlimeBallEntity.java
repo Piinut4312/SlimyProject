@@ -4,6 +4,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SnowBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -26,6 +27,7 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.piinut.sp.ClientMod;
+import net.piinut.sp.block.ModBlockRegistry;
 import net.piinut.sp.item.ModItemRegistry;
 
 public class AquaSlimeBallEntity extends ThrownItemEntity {
@@ -74,13 +76,21 @@ public class AquaSlimeBallEntity extends ThrownItemEntity {
         entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), damage);
     }
 
+    private boolean canPutSlimeLayer(BlockState blockState){
+        if(blockState.getBlock() instanceof SnowBlock){
+            return blockState.get(SnowBlock.LAYERS) == 1;
+        }
+
+        return blockState.isAir() || blockState.getMaterial().isReplaceable();
+    }
+
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
         if (!this.world.isClient) {
             BlockPos pos = new BlockPos(hitResult.getPos());
-            BlockState state = world.getBlockState(pos);
-            BlockState state2 = world.getBlockState(pos.down());
-            if(state.isAir() && !state2.isAir()){
+            BlockState blockState = Blocks.WATER.getDefaultState();
+
+            if(canPutSlimeLayer(this.world.getBlockState(pos)) && blockState.canPlaceAt(world, pos)){
                 this.world.setBlockState(pos, Blocks.WATER.getDefaultState());
                 this.world.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.NEUTRAL, 0.6F, 1.0F);
             }

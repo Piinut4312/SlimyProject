@@ -1,6 +1,7 @@
 package net.piinut.sp.block;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricMaterialBuilder;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
@@ -12,15 +13,17 @@ import net.piinut.sp.Main;
 
 public class ModBlockRegistry {
 
-    public static final Block SLIME_LAYER = new SlimeLayerBlock(FabricBlockSettings.of(Material.DECORATION)
+    public static final Material SLIME_LAYER_MATERIAL = new FabricMaterialBuilder(MapColor.LIME).allowsMovement().notSolid().lightPassesThrough().destroyedByPiston().replaceable().build();
+
+    public static final Block SLIME_LAYER = new SlimeLayerBlock(FabricBlockSettings.of(SLIME_LAYER_MATERIAL)
             .breakInstantly().collidable(false).breakByHand(true).slipperiness(0.8f)
             .sounds(BlockSoundGroup.SLIME).nonOpaque());
 
-    public static final Block MAGMA_CREAM_LAYER = new MagmaCreamLayerBlock(FabricBlockSettings.of(Material.DECORATION)
+    public static final Block MAGMA_CREAM_LAYER = new MagmaCreamLayerBlock(FabricBlockSettings.of(SLIME_LAYER_MATERIAL)
             .breakInstantly().collidable(false).breakByHand(true).slipperiness(0.8f)
             .sounds(BlockSoundGroup.SLIME).nonOpaque().luminance(3));
 
-    public static final Block GLOWING_SLIME_LAYER = new GlowingSlimeLayerBlock(FabricBlockSettings.of(Material.DECORATION)
+    public static final Block GLOWING_SLIME_LAYER = new GlowingSlimeLayerBlock(FabricBlockSettings.of(SLIME_LAYER_MATERIAL)
             .breakInstantly().collidable(false).breakByHand(true).slipperiness(0.8f)
             .sounds(BlockSoundGroup.SLIME).nonOpaque().luminance(11));
 
@@ -52,7 +55,7 @@ public class ModBlockRegistry {
     public static final Block POTTED_SLIMESHROOM = new FlowerPotBlock(SLIMESHROOM_PLANT, FabricBlockSettings.of(Material.DECORATION)
             .breakInstantly().nonOpaque());
 
-    public static final Block ENDER_SLIME_LAYER = new EnderSlimeLayerBlock(FabricBlockSettings.of(Material.DECORATION)
+    public static final Block ENDER_SLIME_LAYER = new EnderSlimeLayerBlock(FabricBlockSettings.of(SLIME_LAYER_MATERIAL)
             .breakInstantly().breakByHand(true).slipperiness(0.8f).noCollision()
             .sounds(BlockSoundGroup.SLIME).nonOpaque().luminance(2));
 

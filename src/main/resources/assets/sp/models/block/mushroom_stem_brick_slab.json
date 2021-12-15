@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "sp:block/mushroom_stem_bricks",
+    "top": "sp:block/mushroom_stem_bricks",
+    "side": "sp:block/mushroom_stem_bricks"
+  }
+}

@@ -73,6 +73,9 @@ public class ModItemRegistry {
         registerBlockItem(ModBlockRegistry.GLOWING_SLIME_BLOCK,"glowing_slime_block");
         registerBlockItem(ModBlockRegistry.SLIMY_DIRT_BLOCK, "slimy_dirt");
         registerBlockItem(ModBlockRegistry.SLIMESHROOM_BLOCK, "slimeshroom_block");
+        registerBlockItem(ModBlockRegistry.MUSHROOM_STEM_BRICKS, "mushroom_stem_bricks");
+        registerBlockItem(ModBlockRegistry.MUSHROOM_STEM_BRICK_STAIRS, "mushroom_stem_brick_stairs");
+        registerBlockItem(ModBlockRegistry.MUSHROOM_STEM_BRICK_SLAB, "mushroom_stem_brick_slab");
         registerBlockItem(ModBlockRegistry.COPPER_CHAIN, "copper_chain");
         registerBlockItem(ModBlockRegistry.EXPOSED_COPPER_CHAIN, "exposed_copper_chain");
         registerBlockItem(ModBlockRegistry.WEATHERED_COPPER_CHAIN, "weathered_copper_chain");

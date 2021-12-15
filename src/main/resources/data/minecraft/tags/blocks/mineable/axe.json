@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "sp:mushroom_stem_bricks",
+    "sp:mushroom_stem_brick_stairs",
+    "sp:mushroom_stem_brick_slab"
+  ]
+}

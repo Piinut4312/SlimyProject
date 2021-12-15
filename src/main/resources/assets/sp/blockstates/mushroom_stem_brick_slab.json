@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "sp:block/mushroom_stem_brick_slab"
+    },
+    "type=double": {
+      "model": "sp:block/mushroom_stem_bricks"
+    },
+    "type=top": {
+      "model": "sp:block/mushroom_stem_brick_slab_top"
+    }
+  }
+}

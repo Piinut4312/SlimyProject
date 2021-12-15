@@ -9,7 +9,7 @@
       "item": "minecraft:waxed_cut_copper"
     },
     "@":{
-      "item":"sp:copper_ingot"
+      "item":"minecraft:copper_ingot"
     },
     "$":{
       "item":"minecraft:tinted_glass"

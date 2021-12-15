@@ -28,7 +28,7 @@ public class ModBlockRegistry {
             .breakInstantly().breakByHand(true).slipperiness(0.8f)
             .sounds(BlockSoundGroup.SLIME).nonOpaque().luminance(14));
 
-    public static final Block HARDENED_SLIME_BLOCK = new HardenedSlimeBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC)
+    public static final Block HARDENED_SLIME_BLOCK = new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC)
             .strength(1.0f).requiresTool().sounds(BlockSoundGroup.CORAL));
 
     public static final Block HARDENED_SLIME_BRICK = new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC)
@@ -62,29 +62,50 @@ public class ModBlockRegistry {
     public static final Block POTTED_LIVERWORT = new FlowerPotBlock(LIVERWORT, FabricBlockSettings.of(Material.DECORATION)
             .breakInstantly().nonOpaque());
 
-    public static final Block SLIMESHROOM_BLOCK = new MushroomBlock(FabricBlockSettings.of(Material.WOOD).strength(0.2f).sounds(BlockSoundGroup.WOOD));
+    public static final Block SLIMESHROOM_BLOCK = new MushroomBlock(FabricBlockSettings.of(Material.WOOD)
+            .strength(0.2f).sounds(BlockSoundGroup.WOOD));
 
-    public static final Block COPPER_CHAIN = new OxidizableChainBlock(Oxidizable.OxidizationLevel.UNAFFECTED, FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
+    public static final Block MUSHROOM_STEM_BRICKS = new Block(FabricBlockSettings.of(Material.WOOD)
+            .strength(0.4f).sounds(BlockSoundGroup.WOOD));
 
-    public static final Block EXPOSED_COPPER_CHAIN = new OxidizableChainBlock(Oxidizable.OxidizationLevel.EXPOSED, FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
+    public static final Block MUSHROOM_STEM_BRICK_STAIRS = new ModStairsBlock(MUSHROOM_STEM_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD)
+            .strength(0.4f).sounds(BlockSoundGroup.WOOD));
 
-    public static final Block WEATHERED_COPPER_CHAIN = new OxidizableChainBlock(Oxidizable.OxidizationLevel.WEATHERED, FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
+    public static final Block MUSHROOM_STEM_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.WOOD)
+            .strength(0.4f).sounds(BlockSoundGroup.WOOD));
 
-    public static final Block OXIDIZED_COPPER_CHAIN = new OxidizableChainBlock(Oxidizable.OxidizationLevel.OXIDIZED, FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
+    public static final Block COPPER_CHAIN = new OxidizableChainBlock(Oxidizable.OxidizationLevel.UNAFFECTED
+            , FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
 
-    public static final Block WAXED_COPPER_CHAIN = new ChainBlock(FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
+    public static final Block EXPOSED_COPPER_CHAIN = new OxidizableChainBlock(Oxidizable.OxidizationLevel.EXPOSED
+            , FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
 
-    public static final Block WAXED_EXPOSED_COPPER_CHAIN = new ChainBlock(FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
+    public static final Block WEATHERED_COPPER_CHAIN = new OxidizableChainBlock(Oxidizable.OxidizationLevel.WEATHERED
+            , FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
 
-    public static final Block WAXED_WEATHERED_COPPER_CHAIN = new ChainBlock(FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
+    public static final Block OXIDIZED_COPPER_CHAIN = new OxidizableChainBlock(Oxidizable.OxidizationLevel.OXIDIZED
+            , FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
 
-    public static final Block WAXED_OXIDIZED_COPPER_CHAIN = new ChainBlock(FabricBlockSettings.of(Material.METAL, MapColor.CLEAR).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
+    public static final Block WAXED_COPPER_CHAIN = new ChainBlock(FabricBlockSettings.of(Material.METAL, MapColor.CLEAR)
+            .requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
 
-    public static final Block COPPER_LANTERN = new LanternBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(15).nonOpaque());
+    public static final Block WAXED_EXPOSED_COPPER_CHAIN = new ChainBlock(FabricBlockSettings.of(Material.METAL, MapColor.CLEAR)
+            .requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
 
-    public static final Block COPPER_SOUL_LANTERN = new LanternBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(10).nonOpaque());
+    public static final Block WAXED_WEATHERED_COPPER_CHAIN = new ChainBlock(FabricBlockSettings.of(Material.METAL, MapColor.CLEAR)
+            .requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
 
-    public static final Block SLIMEBALL_CULTIVATOR = new SlimeballCultivatorBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(8.0f).sounds(BlockSoundGroup.COPPER).nonOpaque());
+    public static final Block WAXED_OXIDIZED_COPPER_CHAIN = new ChainBlock(FabricBlockSettings.of(Material.METAL, MapColor.CLEAR)
+            .requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.CHAIN).nonOpaque());
+
+    public static final Block COPPER_LANTERN = new LanternBlock(FabricBlockSettings.of(Material.METAL)
+            .requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(15).nonOpaque());
+
+    public static final Block COPPER_SOUL_LANTERN = new LanternBlock(FabricBlockSettings.of(Material.METAL)
+            .requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(10).nonOpaque());
+
+    public static final Block SLIMEBALL_CULTIVATOR = new SlimeballCultivatorBlock(FabricBlockSettings.of(Material.METAL)
+            .requiresTool().strength(8.0f).sounds(BlockSoundGroup.COPPER).nonOpaque());
 
     private static boolean always(BlockState state, BlockView world, BlockPos pos) {
         return true;
@@ -119,6 +140,9 @@ public class ModBlockRegistry {
         register(LIVERWORT, "liverwort");
         register(POTTED_LIVERWORT, "potted_liverwort");
         register(SLIMESHROOM_BLOCK, "slimeshroom_block");
+        register(MUSHROOM_STEM_BRICKS, "mushroom_stem_bricks");
+        register(MUSHROOM_STEM_BRICK_STAIRS, "mushroom_stem_brick_stairs");
+        register(MUSHROOM_STEM_BRICK_SLAB, "mushroom_stem_brick_slab");
         register(COPPER_CHAIN, "copper_chain");
         register(EXPOSED_COPPER_CHAIN, "exposed_copper_chain");
         register(WEATHERED_COPPER_CHAIN, "weathered_copper_chain");

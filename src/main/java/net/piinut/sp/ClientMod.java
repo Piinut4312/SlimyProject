@@ -3,11 +3,15 @@ package net.piinut.sp;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.BlockItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
@@ -16,6 +20,7 @@ import net.piinut.sp.block.blockEntity.ModBlockEntityRegistry;
 import net.piinut.sp.block.blockEntity.blockEntityRenderer.ModBlockEntityRendererRegistry;
 import net.piinut.sp.entitiy.EntitySpawnPacket;
 import net.piinut.sp.entitiy.renderer.ModEntityRendererRegistry;
+import net.piinut.sp.item.ModItemRegistry;
 
 import java.util.UUID;
 
@@ -60,6 +65,7 @@ public class ClientMod implements net.fabricmc.api.ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.SLIMESHROOM_PLANT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.POTTED_SLIMESHROOM, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.ENDER_SLIME_LAYER, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.SOUL_SLIME_LAYER, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.LIVERWORT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.POTTED_LIVERWORT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.COPPER_CHAIN, RenderLayer.getCutout());
@@ -73,7 +79,12 @@ public class ClientMod implements net.fabricmc.api.ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.COPPER_LANTERN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.COPPER_SOUL_LANTERN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.SLIMEBALL_CULTIVATOR, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.SLIME_MOLD, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.SLIME_MOLD_MEMORY, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.ELM_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlockRegistry.ELM_DOOR, RenderLayer.getCutout());
         ModBlockEntityRendererRegistry.registerAll();
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> 0x6A9813, ModBlockRegistry.ELM_LEAVES);
     }
 
 }

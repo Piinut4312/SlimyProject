@@ -3,6 +3,14 @@
   "values": [
     "sp:mushroom_stem_bricks",
     "sp:mushroom_stem_brick_stairs",
-    "sp:mushroom_stem_brick_slab"
+    "sp:mushroom_stem_brick_slab",
+    "#sp:elm_logs",
+    "sp:elm_planks",
+    "sp:elm_slab",
+    "sp:elm_stairs",
+    "sp:elm_fence",
+    "sp:elm_fence_gate",
+    "sp:elm_button",
+    "sp:elm_door"
   ]
 }

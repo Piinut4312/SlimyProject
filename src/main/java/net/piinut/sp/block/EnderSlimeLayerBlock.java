@@ -3,28 +3,16 @@ package net.piinut.sp.block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.FoxEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
-import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.GameMode;
 import net.minecraft.world.World;
-import net.piinut.sp.Main;
-import org.apache.logging.log4j.core.jmx.Server;
 
-import java.util.Collections;
-import java.util.Random;
-
-public class EnderSlimeLayerBlock extends LayerBlock{
+public class EnderSlimeLayerBlock extends AbstractSlimeLayerBlock {
 
     public EnderSlimeLayerBlock(Settings settings) {
         super(settings);
@@ -32,7 +20,6 @@ public class EnderSlimeLayerBlock extends LayerBlock{
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        //slowDownEntity(state, entity);
         if (entity instanceof LivingEntity livingEntity) {
             livingEntity.velocityModified = true;
             livingEntity.setVelocity(0, 0, 0);

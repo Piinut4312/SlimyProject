@@ -14,6 +14,7 @@ import net.piinut.sp.Main;
 public class ModBiomeRegistry {
 
     public static final RegistryKey<Biome> SLIMESHROOM_KEY = getBiomeKey("slimeshroom_forest");
+    public static final RegistryKey<Biome> ELM_FOREST_KEY = getBiomeKey("elm_forest");
 
     private static void registerSurfaceBuilder(String id, SurfaceBuilder surfaceBuilder){
         Registry.register(Registry.SURFACE_BUILDER, new Identifier(Main.MODID, id), surfaceBuilder);
@@ -27,15 +28,17 @@ public class ModBiomeRegistry {
         return RegistryKey.of(Registry.BIOME_KEY, new Identifier(Main.MODID, name));
     }
 
-    private static void registerBiome(Biome biome){
-        Registry.register(BuiltinRegistries.BIOME, SLIMESHROOM_KEY.getValue(), biome);
+    private static void registerBiome(Biome biome, RegistryKey<Biome> key){
+        Registry.register(BuiltinRegistries.BIOME, key.getValue(), biome);
     }
 
     public static void registerAll(){
         registerSurfaceBuilder("slimeshroom_forest", ModBiomeCreator.SLIMESHROOM_FOREST_SB);
         registerConfiguredSurfaceBuilder("slimy_surface", ModBiomeCreator.SLIMY_SURFACE_BUILDER);
-        registerBiome(ModBiomeCreator.SLIMESHROOM_FOREST);
+        registerBiome(ModBiomeCreator.SLIMESHROOM_FOREST, SLIMESHROOM_KEY);
+        registerBiome(ModBiomeCreator.ELM_FOREST, ELM_FOREST_KEY);
         OverworldBiomes.addContinentalBiome(SLIMESHROOM_KEY, OverworldClimate.TEMPERATE, 0.5D);
+        OverworldBiomes.addContinentalBiome(ELM_FOREST_KEY, OverworldClimate.TEMPERATE, 1d);
     }
 
 }

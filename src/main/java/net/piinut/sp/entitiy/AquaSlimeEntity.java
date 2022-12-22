@@ -32,13 +32,8 @@ public class AquaSlimeEntity extends SlimeEntity {
     }
 
     @Override
-    protected void initGoals() {
-        super.initGoals();
-    }
-
-    @Override
     protected ParticleEffect getParticles() {
-        return ParticleTypes.BUBBLE;
+        return ParticleTypes.SPLASH;
     }
 
     @Override

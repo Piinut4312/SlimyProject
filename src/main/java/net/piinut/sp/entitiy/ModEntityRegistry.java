@@ -19,6 +19,7 @@ public class ModEntityRegistry {
     public static EntityType<HardenedSlimeBallEntity> HARDENED_SLIME_BALL_ENTITY_TYPE;
     public static EntityType<BlazingMagmaCreamEntity> BLAZING_MAGMA_CREAM_ENTITY_TYPE;
     public static EntityType<EnderSlimeBallEntity> ENDER_SLIME_BALL_ENTITY_TYPE;
+    public static EntityType<SoulSlimeBallEntity> SOUL_SLIME_BALL_ENTITY_TYPE;
     public static EntityType<LightningMagmaCreamEntity> LIGHTNING_MAGMA_CREAM_ENTITY_TYPE;
     public static EntityType<AquaSlimeBallEntity> AQUA_SLIME_BALL_ENTITY_TYPE;
 
@@ -26,6 +27,12 @@ public class ModEntityRegistry {
             Registry.ENTITY_TYPE,
             new Identifier(Main.MODID, "aqua_slime"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, AquaSlimeEntity::new).dimensions(EntityDimensions.changing(2.04f, 2.04f)).trackRangeBlocks(10).build()
+    );
+
+    public static final EntityType<SlimooEntity> SLIMOO_ENTITY_ENTITY_TYPE = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(Main.MODID, "slimoo"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SlimooEntity::new).dimensions(EntityDimensions.changing(0.9f, 1.4f)).trackRangeBlocks(10).build()
     );
 
     private static <T extends Entity> EntityType<T> registerProjectile(String id, EntityType.EntityFactory<T> factory){
@@ -43,13 +50,14 @@ public class ModEntityRegistry {
         HARDENED_SLIME_BALL_ENTITY_TYPE = registerProjectile("hardened_slime_ball", HardenedSlimeBallEntity::new);
         BLAZING_MAGMA_CREAM_ENTITY_TYPE = registerProjectile("blazing_magma_cream", BlazingMagmaCreamEntity::new);
         ENDER_SLIME_BALL_ENTITY_TYPE = registerProjectile("ender_slime_ball", EnderSlimeBallEntity::new);
+        SOUL_SLIME_BALL_ENTITY_TYPE = registerProjectile("soul_slime_ball", SoulSlimeBallEntity::new);
         LIGHTNING_MAGMA_CREAM_ENTITY_TYPE = registerProjectile("lightning_magma_cream", LightningMagmaCreamEntity::new);
         AQUA_SLIME_BALL_ENTITY_TYPE = registerProjectile("aqua_slime_ball", AquaSlimeBallEntity::new);
 
         SpawnRestrictionAccessor.callRegister(AQUA_SLIME_ENTITY_ENTITY_TYPE, SpawnRestriction.Location.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AquaSlimeEntity::canAquaSlimeSpawn);
-
+        SpawnRestrictionAccessor.callRegister(SLIMOO_ENTITY_ENTITY_TYPE, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SlimooEntity::canSpawn);
         FabricDefaultAttributeRegistry.register(AQUA_SLIME_ENTITY_ENTITY_TYPE, HostileEntity.createHostileAttributes());
-
+        FabricDefaultAttributeRegistry.register(SLIMOO_ENTITY_ENTITY_TYPE, SlimooEntity.createSlimooAttributes());
     }
 
 }

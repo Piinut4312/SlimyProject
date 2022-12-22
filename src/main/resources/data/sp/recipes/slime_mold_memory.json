@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "R@T",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item":"minecraft:stone"
+    },
+    "@":{
+      "item":"minecraft:quartz"
+    },
+    "S":{
+      "item":"sp:slime_mold_ball"
+    },
+    "R":{
+      "item":"minecraft:redstone"
+    },
+    "T":{
+      "item":"minecraft:redstone_torch"
+    }
+  },
+  "result": {
+    "item": "sp:slime_mold_memory",
+    "count":1
+  }
+}

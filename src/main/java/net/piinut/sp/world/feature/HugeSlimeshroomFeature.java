@@ -26,22 +26,37 @@ public class HugeSlimeshroomFeature extends HugeMushroomFeature {
 
     @Override
     protected int getHeight(Random random) {
-        int i = random.nextInt(4) + 8;
+        int i = random.nextInt(4);
         if (random.nextInt(12) == 0) {
             i *= 2;
         }
-
+        i += 8;
         return i;
+    }
+
+    private int randomStemHeight(int height, Random random){
+        return random.nextInt(Math.min(height-2, 3))+1;
     }
 
     @Override
     protected void generateStem(WorldAccess world, Random random, BlockPos pos, HugeMushroomFeatureConfig config, int height, BlockPos.Mutable mutable) {
+
+        int n[] = new int[4];
+        for(int i = 0; i < 4; i++){
+            n[i] = randomStemHeight(height, random);
+        }
+
         for(int i = 0; i < height; ++i) {
-            if(height >= 2 && i < 2){
+            if(height >= 2 && i <= 5){
                 for(int j = -1; j <= 1; j++){
                     for(int k = -1; k <= 1; k++){
-                        mutable.set(pos, j, i, k);
-                        setBlock(world, random, pos, config, mutable);
+                        if(j*k != 0 && i < n[(j+1)/2+(k+1)]){
+                            mutable.set(pos, j, i, k);
+                            setBlock(world, random, pos, config, mutable);
+                        }else if(i < 2){
+                            mutable.set(pos, j, i, k);
+                            setBlock(world, random, pos, config, mutable);
+                        }
                     }
                 }
             }
@@ -70,10 +85,9 @@ public class HugeSlimeshroomFeature extends HugeMushroomFeature {
             int j = config.foliageRadius;
             if(i == y){
                 j -= 2;
-            }else if(i == y-1){
+            }else if(i == y-1 || i == y-4){
                 j -= 1;
             }
-            int k = config.foliageRadius - 2;
 
             //l = x, m = z
             for(int l = -j; l <= j; ++l) {
@@ -98,7 +112,7 @@ public class HugeSlimeshroomFeature extends HugeMushroomFeature {
                     boolean bl22 = (bl18 || bl19);
 
                     boolean bl7 = i >= y;
-                    boolean bl8 = i == y-1 && (bl5 != bl6);
+                    boolean bl8 = (i == y-1 || i == y-4) && (bl5 != bl6);
                     boolean bl9 = i < y-1 && (bl14 != bl15) && (bl5 != bl6);
                     boolean bl20 = i < y-1 && (bl21 && bl22);
 

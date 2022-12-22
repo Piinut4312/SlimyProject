@@ -2,11 +2,13 @@ package net.piinut.sp;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.piinut.sp.block.ModBlockRegistry;
 import net.piinut.sp.block.blockEntity.ModBlockEntityRegistry;
+import net.piinut.sp.effect.ModStatusEffectRegistry;
 import net.piinut.sp.enchantment.ModEnchantmentRegistry;
 import net.piinut.sp.entitiy.ModEntityRegistry;
 import net.piinut.sp.item.ModItemRegistry;
@@ -39,5 +41,7 @@ public class Main implements ModInitializer {
         ModBiomeRegistry.registerAll();
         ModRecipeRegistry.registerAll();
         ModEnchantmentRegistry.registerAll();
+        ModStatusEffectRegistry.registerAll();
+
     }
 }

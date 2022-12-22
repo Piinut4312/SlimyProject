@@ -20,14 +20,14 @@ import net.piinut.sp.item.ModSlimeBallItem;
 
 import java.util.Random;
 
-public abstract class LayerBlock extends Block {
+public abstract class AbstractSlimeLayerBlock extends Block {
 
     protected static final float RAIN_WASHING_CHANCE = 0.2f;
     public static final IntProperty STICKINESS = IntProperty.of("stickiness", ModSlimeBallItem.MIN_STICKINESS, ModSlimeBallItem.MAX_STICKINESS);
 
     protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 
-    public LayerBlock(Settings settings) {
+    public AbstractSlimeLayerBlock(Settings settings) {
         super(settings);
         setDefaultState(getStateManager().getDefaultState().with(STICKINESS, 1));
     }

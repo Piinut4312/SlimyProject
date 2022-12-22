@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "key": {
+    "#": {
+      "item": "sp:awakened_soul_sand"
+    },
+    "X": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "result": {
+    "item": "sp:soul_slime_ball",
+    "count": 8
+  }
+}

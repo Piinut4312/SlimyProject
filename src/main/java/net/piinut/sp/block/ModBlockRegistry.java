@@ -1,15 +1,24 @@
 package net.piinut.sp.block;
 
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricMaterialBuilder;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.*;
+import net.minecraft.client.color.block.BlockColorProvider;
+import net.minecraft.entity.EntityType;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.BlockRenderView;
 import net.minecraft.world.BlockView;
 import net.piinut.sp.Main;
+import net.piinut.sp.block.sapling.ElmSaplingGenerator;
+import org.jetbrains.annotations.Nullable;
 
 public class ModBlockRegistry {
 
@@ -58,6 +67,10 @@ public class ModBlockRegistry {
     public static final Block ENDER_SLIME_LAYER = new EnderSlimeLayerBlock(FabricBlockSettings.of(SLIME_LAYER_MATERIAL)
             .breakInstantly().breakByHand(true).slipperiness(0.8f).noCollision()
             .sounds(BlockSoundGroup.SLIME).nonOpaque().luminance(2));
+
+    public static final Block SOUL_SLIME_LAYER = new SoulSlimeLayerBlock(FabricBlockSettings.of(SLIME_LAYER_MATERIAL)
+            .breakInstantly().breakByHand(true).slipperiness(0.8f).noCollision()
+            .sounds(BlockSoundGroup.SLIME).nonOpaque());
 
     public static final Block LIVERWORT = new LiverwortBlock(FabricBlockSettings.of(Material.PLANT)
             .noCollision().breakInstantly().sounds(BlockSoundGroup.MOSS_CARPET).postProcess(ModBlockRegistry::always));
@@ -110,12 +123,64 @@ public class ModBlockRegistry {
     public static final Block SLIMEBALL_CULTIVATOR = new SlimeballCultivatorBlock(FabricBlockSettings.of(Material.METAL)
             .requiresTool().strength(8.0f).sounds(BlockSoundGroup.COPPER).nonOpaque());
 
+    public static final Block AWAKENED_SOUL_SAND_BLOCK = new AwakenedSoulSandBlock(FabricBlockSettings.of(Material.AGGREGATE, MapColor.BROWN).strength(0.5f).velocityMultiplier(0.4f).sounds(BlockSoundGroup.SOUL_SAND).allowsSpawning(ModBlockRegistry::always).solidBlock(ModBlockRegistry::always).blockVision(ModBlockRegistry::always).suffocates(ModBlockRegistry::always).luminance(10));
+
+    public static final Block SLIME_MOLD = new SlimeMoldBlock(FabricBlockSettings.of(SLIME_LAYER_MATERIAL)
+            .breakInstantly().breakByHand(true).slipperiness(0.8f).noCollision()
+            .sounds(BlockSoundGroup.SLIME).nonOpaque());
+
+    public static final Block SLIME_MOLD_MEMORY = new SlimeMoldMemoryBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ELM_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD, state -> state.get(PillarBlock.AXIS) == Direction.Axis.Y ? MapColor.OFF_WHITE : MapColor.STONE_GRAY).strength(2.0f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block STRIPPED_ELM_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.OFF_WHITE).strength(2.0f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ELM_WOOD = new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.STONE_GRAY).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block STRIPPED_ELM_WOOD = new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.OFF_WHITE).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ELM_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD, MapColor.OFF_WHITE).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ELM_LEAVES = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(ModBlockRegistry::canSpawnOnLeaves).suffocates(ModBlockRegistry::never).blockVision(ModBlockRegistry::never));
+
+    public static final Block ELM_SAPLING = new ElmSaplingBlock(new ElmSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
+
+    public static final Block ELM_SLAB = new SlabBlock(FabricBlockSettings.of(Material.WOOD, MapColor.OFF_WHITE).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ELM_STAIRS = new ModStairsBlock(ELM_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD, MapColor.OFF_WHITE).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ELM_BUTTON = new ModWoodenButtonBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().strength(0.5f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ELM_FENCE = new FenceBlock(FabricBlockSettings.of(Material.WOOD, MapColor.OFF_WHITE).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ELM_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.of(Material.WOOD, MapColor.OFF_WHITE).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ELM_DOOR = new ModDoorBlock(FabricBlockSettings.of(Material.WOOD, MapColor.OFF_WHITE).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ELM_PRESSURE_PLATE = new ModPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD).noCollision().strength(0.5f).sounds(BlockSoundGroup.WOOD));
+
+    private static boolean always(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityType<?> entityType) {
+        return true;
+    }
+
     private static boolean always(BlockState state, BlockView world, BlockPos pos) {
         return true;
     }
 
+    private static boolean never(BlockState state, BlockView world, BlockPos pos) {
+        return false;
+    }
+
+    private static Boolean canSpawnOnLeaves(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) {
+        return type == EntityType.OCELOT || type == EntityType.PARROT;
+    }
+
     private static void register(Block block, String id){
         Registry.register(Registry.BLOCK, new Identifier(Main.MODID, id), block);
+    }
+
+    private static void registerFlammables(Block block, int burn, int spread){
+        FlammableBlockRegistry.getDefaultInstance().add(block, burn, spread);
     }
 
     private static void registerOxidizablePairs(Block less, Block more){
@@ -124,6 +189,10 @@ public class ModBlockRegistry {
 
     private static void registerWaxablePairs(Block unwaxed, Block waxed){
         OxidizableBlocksRegistry.registerWaxableBlockPair(unwaxed, waxed);
+    }
+
+    private static void registerStrippablePairs(Block input, Block stripped){
+        StrippableBlockRegistry.register(input, stripped);
     }
 
     public static void registerAll(){
@@ -140,6 +209,7 @@ public class ModBlockRegistry {
         register(SLIMESHROOM_PLANT, "slimeshroom");
         register(POTTED_SLIMESHROOM, "potted_slimeshroom");
         register(ENDER_SLIME_LAYER, "ender_slime_layer");
+        register(SOUL_SLIME_LAYER, "soul_slime_layer");
         register(LIVERWORT, "liverwort");
         register(POTTED_LIVERWORT, "potted_liverwort");
         register(SLIMESHROOM_BLOCK, "slimeshroom_block");
@@ -157,6 +227,33 @@ public class ModBlockRegistry {
         register(COPPER_LANTERN, "copper_lantern");
         register(COPPER_SOUL_LANTERN, "copper_soul_lantern");
         register(SLIMEBALL_CULTIVATOR, "slimeball_cultivator");
+        register(AWAKENED_SOUL_SAND_BLOCK, "awakened_soul_sand");
+        register(SLIME_MOLD, "slime_mold");
+        register(SLIME_MOLD_MEMORY, "slime_mold_memory");
+        register(ELM_LOG, "elm_log");
+        register(STRIPPED_ELM_LOG, "stripped_elm_log");
+        register(ELM_WOOD, "elm_wood");
+        register(STRIPPED_ELM_WOOD, "stripped_elm_wood");
+        register(ELM_PLANKS, "elm_planks");
+        register(ELM_LEAVES, "elm_leaves");
+        register(ELM_SAPLING, "elm_sapling");
+        register(ELM_SLAB, "elm_slab");
+        register(ELM_STAIRS, "elm_stairs");
+        register(ELM_BUTTON, "elm_button");
+        register(ELM_FENCE, "elm_fence");
+        register(ELM_FENCE_GATE, "elm_fence_gate");
+        register(ELM_DOOR, "elm_door");
+        register(ELM_PRESSURE_PLATE, "elm_pressure_plate");
+        registerFlammables(ELM_PLANKS, 5, 20);
+        registerFlammables(ELM_SLAB, 5, 20);
+        registerFlammables(ELM_FENCE_GATE, 5, 20);
+        registerFlammables(ELM_FENCE, 5, 20);
+        registerFlammables(ELM_STAIRS, 5, 20);
+        registerFlammables(ELM_LOG, 5, 5);
+        registerFlammables(STRIPPED_ELM_LOG, 5, 5);
+        registerFlammables(ELM_WOOD, 5, 5);
+        registerFlammables(STRIPPED_ELM_WOOD, 5, 5);
+        registerFlammables(ELM_LEAVES, 30, 60);
         registerOxidizablePairs(COPPER_CHAIN, EXPOSED_COPPER_CHAIN);
         registerOxidizablePairs(EXPOSED_COPPER_CHAIN, WEATHERED_COPPER_CHAIN);
         registerOxidizablePairs(WEATHERED_COPPER_CHAIN, OXIDIZED_COPPER_CHAIN);
@@ -164,6 +261,8 @@ public class ModBlockRegistry {
         registerWaxablePairs(EXPOSED_COPPER_CHAIN, WAXED_EXPOSED_COPPER_CHAIN);
         registerWaxablePairs(WEATHERED_COPPER_CHAIN, WAXED_WEATHERED_COPPER_CHAIN);
         registerWaxablePairs(OXIDIZED_COPPER_CHAIN, WAXED_OXIDIZED_COPPER_CHAIN);
+        registerStrippablePairs(ELM_LOG, STRIPPED_ELM_LOG);
+        registerStrippablePairs(ELM_WOOD, STRIPPED_ELM_WOOD);
     }
 
 }

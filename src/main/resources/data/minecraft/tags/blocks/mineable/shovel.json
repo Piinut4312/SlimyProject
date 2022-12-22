@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "sp:slimy_dirt"
+    "sp:slimy_dirt",
+    "sp:awakened_soul_sand"
   ]
 }

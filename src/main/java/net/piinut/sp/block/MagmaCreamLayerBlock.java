@@ -8,7 +8,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class MagmaCreamLayerBlock extends LayerBlock{
+public class MagmaCreamLayerBlock extends AbstractSlimeLayerBlock {
 
     public MagmaCreamLayerBlock(Settings settings) {
         super(settings);

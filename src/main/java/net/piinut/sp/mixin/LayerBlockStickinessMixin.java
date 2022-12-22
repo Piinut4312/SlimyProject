@@ -2,8 +2,8 @@ package net.piinut.sp.mixin;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.mob.SlimeEntity;
-import net.piinut.sp.block.LayerBlock;
+import net.piinut.sp.block.AbstractSlimeLayerBlock;
+import net.piinut.sp.entitiy.ModEntityRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -14,9 +14,10 @@ public class LayerBlockStickinessMixin {
 
     @Inject(method = "getVelocityMultiplier()F", at = @At("HEAD"), cancellable = true)
     private void injectedMethod(CallbackInfoReturnable<Float> cir){
-        BlockState blockState = ((Entity)(Object)this).world.getBlockState(((Entity)(Object)this).getBlockPos());
-        if(blockState.getBlock() instanceof LayerBlock){
-            int level = blockState.get(LayerBlock.STICKINESS);
+        Entity entity = ((Entity)(Object)this);
+        BlockState blockState = entity.world.getBlockState(entity.getBlockPos());
+        if(blockState.getBlock() instanceof AbstractSlimeLayerBlock && !entity.getType().equals(ModEntityRegistry.SLIMOO_ENTITY_ENTITY_TYPE)){
+            int level = blockState.get(AbstractSlimeLayerBlock.STICKINESS);
             cir.setReturnValue((float) (0.56-0.16*level));
         }
     }

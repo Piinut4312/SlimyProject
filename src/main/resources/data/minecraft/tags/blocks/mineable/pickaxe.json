@@ -7,6 +7,13 @@
     "sp:hardened_slime_brick_slab",
     "sp:chiseled_hardened_slime_brick",
     "sp:copper_chain",
+    "sp:exposed_copper_chain",
+    "sp:weathered_copper_chain",
+    "sp:oxidized_copper_chain",
+    "sp:waxed_copper_chain",
+    "sp:waxed_exposed_copper_chain",
+    "sp:waxed_weathered_copper_chain",
+    "sp:waxed_oxidized_copper_chain",
     "sp:copper_lantern",
     "sp:copper_soul_lantern",
     "sp:slimeball_cultivator"

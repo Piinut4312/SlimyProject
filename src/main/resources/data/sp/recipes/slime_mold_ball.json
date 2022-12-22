@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "sp:slime_mold"
+    }
+  },
+  "result": {
+    "item": "sp:slime_mold_ball",
+    "count":1
+  }
+}

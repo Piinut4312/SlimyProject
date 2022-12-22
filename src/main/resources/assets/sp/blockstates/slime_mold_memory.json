@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,powered=false": {
+      "model": "sp:block/slime_mold_memory",
+      "y": 270
+    },
+    "facing=east,powered=true": {
+      "model": "sp:block/slime_mold_memory_on",
+      "y": 270
+    },
+    "facing=north,powered=false": {
+      "model": "sp:block/slime_mold_memory",
+      "y": 180
+    },
+    "facing=north,powered=true": {
+      "model": "sp:block/slime_mold_memory_on",
+      "y": 180
+    },
+    "facing=south,powered=false": {
+      "model": "sp:block/slime_mold_memory"
+    },
+    "facing=south,powered=true": {
+      "model": "sp:block/slime_mold_memory_on"
+    },
+    "facing=west,powered=false": {
+      "model": "sp:block/slime_mold_memory",
+      "y": 90
+    },
+    "facing=west,powered=true": {
+      "model": "sp:block/slime_mold_memory_on",
+      "y": 90
+    }
+  }
+}

@@ -18,7 +18,7 @@ public class SlimeshroomForestSurfaceBuilder extends SurfaceBuilder<TernarySurfa
 
     @Override
     public void generate(Random random, Chunk chunk, Biome biome, int x, int z, int height, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i, long l, TernarySurfaceConfig surfaceConfig) {
-        if (noise < 2.5D && noise > 1D) {
+        if (noise < 2.2D+0.8*random.nextDouble() && noise > 1D-0.8*random.nextDouble()) {
             SurfaceBuilder.DEFAULT.generate(random, chunk, biome, x, z, height, noise, defaultBlock, defaultFluid, seaLevel, i, l, SurfaceBuilder.COARSE_DIRT_CONFIG);
         } else {
             SurfaceBuilder.DEFAULT.generate(random, chunk, biome, x, z, height, noise, defaultBlock, defaultFluid, seaLevel, i, l, new TernarySurfaceConfig(

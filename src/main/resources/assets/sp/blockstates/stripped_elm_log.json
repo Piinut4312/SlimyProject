@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "sp:block/stripped_elm_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "sp:block/stripped_elm_log"
+    },
+    "axis=z": {
+      "model": "sp:block/stripped_elm_log_horizontal",
+      "x": 90
+    }
+  }
+}

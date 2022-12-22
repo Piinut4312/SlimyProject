@@ -1,3 +1,6 @@
 {
-  "parent": "sp:block/slimeball_cultivator_0_0"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "sp:item/slimeball_cultivator"
+  }
 }

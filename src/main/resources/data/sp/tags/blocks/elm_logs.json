@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "sp:elm_log",
+    "sp:elm_wood",
+    "sp:stripped_elm_log",
+    "sp:stripped_elm_wood"
+  ]
+}

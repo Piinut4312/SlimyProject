@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "sp:block/elm_slab"
+    },
+    "type=double": {
+      "model": "sp:block/elm_planks"
+    },
+    "type=top": {
+      "model": "sp:block/elm_slab_top"
+    }
+  }
+}

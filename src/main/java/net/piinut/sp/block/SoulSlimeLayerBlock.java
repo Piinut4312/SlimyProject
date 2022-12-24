@@ -4,6 +4,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
@@ -26,6 +27,7 @@ public class SoulSlimeLayerBlock extends AbstractSlimeLayerBlock {
         if(entity instanceof PlayerEntity player){
             if(!(player.isCreative() || player.isSpectator())){
                 player.addStatusEffect(new StatusEffectInstance(ModStatusEffectRegistry.SOULLESS, 200, 0, false, false));
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 600, 0, false, false));
                 if(!player.world.isClient){
                     ((ServerWorld)entity.world).spawnParticles(ParticleTypes.SOUL, pos.getX()+0.5, pos.getY()+0.2f, pos.getZ()+0.5, 3, 0.02, 0.2, 0.02, 0.05);
                 }
@@ -34,6 +36,7 @@ public class SoulSlimeLayerBlock extends AbstractSlimeLayerBlock {
         }else if(entity instanceof MobEntity mobEntity){
             if(!mobEntity.isUndead()){
                 mobEntity.addStatusEffect(new StatusEffectInstance(ModStatusEffectRegistry.SOULLESS, 600, 0, false, false));
+                mobEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 600, 0, false, false));
                 world.spawnEntity(new ExperienceOrbEntity(world, pos.getX(), pos.getY(), pos.getZ(), world.getRandom().nextInt(3)));
                 if(!entity.world.isClient()){
                     ((ServerWorld)entity.world).spawnParticles(ParticleTypes.SOUL, pos.getX()+0.5, pos.getY()+0.2f, pos.getZ()+0.5, 3, 0.02, 0.2, 0.02, 0.05);

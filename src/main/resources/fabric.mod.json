@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "id": "sp",
-  "version": "1.0.0.0",
+  "version": "0.1.0",
 
   "name": "Slimy Project",
-  "description": "A mod that allows you to throw slime balls and adds some other slime related stuff",
+  "description": "A mod that added throwable slime balls and some other slime related stuff to the game.",
   "authors": [
-    "PiinutButter4312"
+    "Piinut4312"
   ],
   "contact": {
     "homepage":"https://www.curseforge.com/members/piinut4312/projects",

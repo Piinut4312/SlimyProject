@@ -1,11 +1,11 @@
-# SlimyProject
+# Slimy Project
 Slimy project is a simple mod that adds throwable slime balls and some other slime related stuff to the game. Besides from your typical slime balls from vanilla Minecraft, there are also many different cool variants like Exploding slime balls, Soul slime balls and more!
 
 There are also some other slime-related contents such as new biomes and mobs. Explore the world to find out more!
 
 ## Features
 - Vanilla slime balls and magma creams are now throwable
-- 9 new variants of slime balls
+- 12 new variants of slime balls
 - 2 new biomes
 - 1 new structure that contains custom loots
 - 2 new mobs

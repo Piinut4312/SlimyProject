@@ -1,3 +1,4 @@
+![](https://i.imgur.com/8xJRrlq.png)
 # Slimy Project
 Slimy project is a simple mod that adds throwable slime balls and some other slime related stuff to the game. Besides from your typical slime balls from vanilla Minecraft, there are also many different cool variants like Exploding slime balls, Soul slime balls and more!
 
